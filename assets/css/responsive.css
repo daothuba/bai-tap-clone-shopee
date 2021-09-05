@@ -1,0 +1,197 @@
+/* wide pc */
+
+@media (min-width: 1024px) {
+    .hide-on-pc {
+        display: none;
+    }
+
+
+    /* hiển thị giỏ hàng */
+    .cart__wrapper:hover .cart__list {
+        display: block;
+    }
+}
+
+
+
+/* tablet & pc */
+
+@media (min-width: 740px) {
+    .hide-on-tablet-pc {
+        display: none;
+    }
+}
+
+/* mobile & tablet */
+
+@media (max-width: 1023px) {
+
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+
+    .header {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .app-container {
+        margin-top: calc(var(--header-height) + var(--header-sort-bar-height));
+    }
+
+    .sort-bar {
+        display: flex;
+    }
+
+    .app-content {
+        padding-top: 8px;
+    }
+
+    .cart {
+        width: 68px;
+        text-align: right;
+    }
+
+    .cart__list {
+        display: none;
+        position: fixed;
+        top: var(--header-height);
+        right: 0;
+        width: 100%;
+        padding: 0 calc((100% - 644px) / 2);
+    }
+
+    .cart__list::before {
+        display: none;
+    }
+
+    /* khi đặt chuột vào thẻ input thì hiển thị cart list */
+    .cart__cart-checkbox:checked ~ .cart__list {
+        display: block;
+    }
+
+    .cart__list::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        left: 0;
+        top: -30px;
+    }
+
+}
+
+
+/* tablet */
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    :root {
+        --header-height: 68px;
+        --navbar-height: 0px;   
+    }
+
+    .hide-on-tablet {
+        display: none;
+    }
+
+}
+
+
+/* mobile */
+@media (max-width: 739px) {
+    :root {
+        --header-height: 54px;
+        --navbar-height: 0px;   
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .header-with-search {
+        justify-content: space-between;
+    }
+
+    .cart,
+    .logo {
+        width: unset;
+    }
+
+    .search {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        height: 46px;
+        box-shadow: 0 1px 6px rgba(218, 218, 218, 0.22);
+        padding: 0 6px;
+        animation: mobileSearchSideIn linear 0.2s ;
+        display: none;
+    }
+
+    @keyframes mobileSearchSideIn {
+        from {
+            opacity: 0;
+            top: calc(var(--header-height) / 2);
+        }
+        to {
+            opacity: 1;
+            top: var(--header-height);
+        }
+    }
+
+    .search__history {
+        position: fixed;
+        width: 100%;
+        top: calc(var(--header-height) + var(--header-sort-bar-height));
+        left: 0;
+    }
+
+
+    .pagination-item__link {
+        min-width: 30px;
+        height: var(--height);
+        line-height: var(--height);
+        font-size: 1.6rem;
+        --height: 28px;
+    }
+
+    .app-content {
+        margin: 0 4px;
+    }
+
+    .logo__img {
+        width: 110px;
+    }
+
+    .footer__content {
+        padding: 0 16px;
+    } 
+
+    .footer__heading {
+        text-align: center;
+    }
+    
+    .footer__download,
+    .footer-item__link {
+        justify-content: center;
+    }
+
+    .footer__download-app {
+        flex: unset;
+    }
+
+    .footer__download-qr-img {
+        display: none;
+    }
+
+    .footer__download-app-link {
+        display: block;
+        padding: 6px 8px;
+    }
+
+}

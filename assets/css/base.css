@@ -1,0 +1,243 @@
+:root {
+    --primary-color: #ee4d2d;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --text-color-6: #666;
+    --text-color-9: #999;
+    --border-color: #dbdbdb;
+    --star-gold-color: #ffe600;
+    --header-height: 120px;
+    --header-sort-bar-height: 46px;
+    --navbar-height: 34px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6em;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* responsive */
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* vượt quá width tự động nhảy xuống hàng */
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.app-content {
+    padding-top: 36px;
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+
+/* animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+       transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+
+/* modal */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: fadeIn linear .1s;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    position: relative;
+    margin: auto;
+    z-index: 1;
+    animation: growth linear .1s;
+    --growth-from: 0.7;
+    --growth-to: 1;
+}
+
+/* button style */
+.btn {
+    /* nội dung căn giữa button */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 124px;
+    min-height: 34px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--text-color);
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.btn.btn--normal:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn--size-s {
+    font-size: 12px;
+    height: 32px;
+    padding: 0 8px;
+}
+
+.btn.btn--primary {
+    color: var(--white-color);
+    background: var(--primary-color);
+}
+
+.btn.btn--disable {
+    color: #777;
+    background: #ccc;
+    cursor: default;
+}
+
+/* selection */
+.col10-select-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    min-width: 200px;
+    height: 34px;
+    background: var(--white-color);
+    padding: 0 12px;
+    border-radius: 2px;
+    box-shadow: 0 1px 6px rgba(218, 218, 218, 0.22);
+}
+
+.col10-select-input__label {
+    font-size: 1.3rem;
+    color: var(--text-color-6);
+}
+
+.col10-select-input__icon {
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.col10-select-input:hover .col10-select-input__list {
+    display: block;
+    z-index: 1;
+}
+
+.col10-select-input__list {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 28px;
+    list-style: none;
+    background: var(--white-color);
+    padding: 12px 16px;
+    border-radius: 2px;
+    box-shadow: 0 1px 6px rgba(218, 218, 218, 0.22);
+    animation: fadeIn ease-in .2s;
+}
+
+.col10-select-input__label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    bottom: -10px;
+}
+
+.col10-select-input__link {
+    display: block;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--text-color-6);
+    padding: 6px 0;
+}
+
+.col10-select-input__link:hover {
+    color: var(--primary-color);
+}
+
+/* pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination-item {
+    margin: 0 2px;  
+}
+
+.pagination-item--active .pagination-item__link {
+    background: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    border-radius: 2px;
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    filter: opacity(90%);
+}
+
+.pagination-item__link {
+    display: block;
+    background: #fff;
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #939393;
+    text-align: center;
+    border-radius: 2px;
+    --height: 30px;
+}
